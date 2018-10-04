@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './styles/Navbar.css';
+import './styles/Navbar.less';
 import pokeball from '../img/pokeball.png';
 
 function Navbar() {
   return (
-    <ul className="nav-links">
+    <ul className="navbar">
       <li>
         <Link to={'/'} className="brand">
           <img src={pokeball} alt="" />
