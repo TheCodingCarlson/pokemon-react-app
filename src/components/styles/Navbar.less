@@ -27,15 +27,20 @@
   margin: 0;
   padding: 0;
 
-  & > li:first-child {
-    margin-right: auto;
+  & > li {
+    &:not(:last-child) {
+      padding-right: 30px;
+    }
+
+    &:first-child {
+      margin-right: auto;
+    }
   }
 
   .nav-link {
     color: @yellow;
     font-family: 'Bahiana', cursive;
     font-size: 1.2rem;
-    padding-right: 20px;
     text-decoration: none;
     transition: color 0.5s ease;
 
@@ -55,7 +60,7 @@
     }
 
     &:hover {
-      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+      animation: shake 0.82s cubic-bezier(0.36,0.07,0.19,0.97) both;
       transform: translate3d(0, 0, 0);
     }
   }
