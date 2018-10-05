@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './styles/PokemonCell.less';
 import helpers from '../helpers';
 
-function PokemonCell({pokemon}) {
+const PokemonCell = ({pokemon}) => {
   const { name } = pokemon;
   const image = helpers.checkImageSprite(name); 
   return (

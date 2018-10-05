@@ -1,0 +1,28 @@
+@import (reference) '../../styles/variables.less';
+
+.pokemon-filter {
+  text-align: center;
+
+  .search-form {  
+    p {
+      max-width: 300px;
+      margin: 15px auto;
+    }
+  
+    input {
+      background: transparent;
+      border: none;
+      font-family: 'Open Sans', sans-serif;
+      border-bottom: 2px solid @red; 
+      color: @yellow;
+      width: 25%;
+      margin-top: 40px;
+  
+      &:focus {
+        outline: none;
+        transition: all ease 0.5s;
+        border-bottom: 2px solid @yellow;
+      }
+    }
+  }
+}

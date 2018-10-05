@@ -12,7 +12,7 @@ class PokemonDetails extends Component {
     };
   }
 
-  getData() {
+  getData = () => {
     const url = this.props.location.state.pokemon.url;
     let pokemon = {};
     fetch(url, {
@@ -33,7 +33,7 @@ class PokemonDetails extends Component {
     }).catch(error => console.log(error))
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.getData();
   }
 
