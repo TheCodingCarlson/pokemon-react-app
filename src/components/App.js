@@ -5,6 +5,7 @@ import Pokedex from './Pokedex';
 import Search from './Search';
 import Team from './Team';
 import Navbar from './Navbar';
+import PokemonDetails from './PokemonDetails';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path='/' component={Pokedex} />
           <Route path='/search' component={Search} />
           <Route path='/team' component={Team} />
+          <Route path='/details/:name' component={PokemonDetails} />
         </div>
       </Router>
     </div>

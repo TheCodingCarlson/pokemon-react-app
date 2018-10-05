@@ -3,12 +3,19 @@ import { Link } from 'react-router-dom';
 import './styles/PokemonCell.less';
 
 function PokemonCell({pokemon}) {
+  const { name } = pokemon; 
   return (
-    <Link to={`/details/${pokemon}`} className="pokemon-cell">
+    <Link to={{
+        pathname: `/details/${name}`,
+        state: {
+          pokemon: pokemon
+        }
+      }} 
+      className="pokemon-cell">
       <div>
-        <img src={`http://pokestadium.com/sprites/xy/${pokemon}.gif/`} alt={pokemon} />
+        <img src={`http://pokestadium.com/sprites/xy/${name}.gif/`} alt={name} />
         <div className="align-bottom">
-          <p>{pokemon}</p>
+          <p>{name}</p>
         </div>
       </div>
     </Link>
