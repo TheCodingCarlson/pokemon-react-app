@@ -11,12 +11,11 @@ class PokemonList extends Component {
   }
 
   getPokemon() {
-    fetch("https://pokeapi.co/api/v2/pokemon/", {
+    fetch("https://pokeapi.co/api/v2/pokemon/?limit=386", {
       method: "GET"
     }).then(response => {
       if (response.ok) {
         response.json().then(json => {
-          console.log(json.results[0].name);
           this.setState({
             pokemon: json.results.slice(0, 12)
           });
