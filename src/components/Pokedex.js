@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from './Header'
 import PokemonList from './PokemonList';
-import SearchInput from './SearchInput';
+import PokemonFilter from './PokemonFilter';
 import Button from './Button';
 
 const pokemonAPiUrl = "https://pokeapi.co/api/v2/pokemon/";
@@ -39,7 +39,11 @@ class Pokedex extends Component {
 
   filterPokemon = (newFilter) => {
     const filter = newFilter;
-    const filteredPokemon = newFilter !== '' ? this.state.pokemon.filter(pokemon => pokemon.name.search(filter) !== -1) : [];
+    const filteredPokemon = newFilter !== '' 
+      ? this.state.pokemon.filter(pokemon => 
+        pokemon.name.search(filter.toLowerCase()) !== -1) 
+      : [];
+
     this.setState({ filter, filteredPokemon });
   }
 
@@ -51,7 +55,7 @@ class Pokedex extends Component {
     return (
       <div className="Pokedex">
         <Header text="Pokedex"/>
-        <SearchInput filter={this.state.filter} filterPokemon={this.filterPokemon}/>
+        <PokemonFilter filter={this.state.filter} filterPokemon={this.filterPokemon}/>
         <Button text="Randomize!" onClickFunction={() => this.getRandomPokemon()} />
         <PokemonList pokemon={this.state.filteredPokemon} />
       </div>

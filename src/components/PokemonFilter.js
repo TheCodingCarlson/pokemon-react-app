@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './styles/SearchInput.less';
+import './styles/PokemonFilter.less';
 
-class SearchInput extends Component {
+class PokemonFilter extends Component {
   handleChange = (event) => {
     console.log(event.currentTarget.value);
     this.props.filterPokemon(event.currentTarget.value);
@@ -12,12 +12,10 @@ class SearchInput extends Component {
       <div className="pokemon-filter">
         <p>Search for Pokemon!</p>
         <p>ex: Charizard</p>
-        <form className="search-form">
-          <input value={this.props.filter} onChange={(e) => this.handleChange(e)} />
-        </form>
+        <input value={this.props.filter} onChange={(e) => this.handleChange(e)} />
       </div>
     );
   }
 }
 
-export default SearchInput;
+export default PokemonFilter;

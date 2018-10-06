@@ -3,7 +3,13 @@ import './styles/Button.less';
 
 const Button = ({text, onClickFunction}) => {
   return (
-    <button className="button-primary" onClick={() => onClickFunction()}>{text}</button>
+    <div className="button-container">
+          <button 
+            className="button-primary" 
+            onClick={() => onClickFunction()}>
+            {text}
+          </button>
+    </div>
   );
 }
 

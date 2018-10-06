@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import './styles/PokemonDetails.less';
 import helpers from '../helpers';
 
@@ -49,6 +50,7 @@ class PokemonDetails extends Component {
       <div className="pokemon-details">
         <img src={image ? `http://pokestadium.com/sprites/xy/${image}.gif/` : ''} alt={name} />
         <h1>{name}</h1>
+        <Link to="/">&larr; Back</Link>
         <p>Height: {height}ft</p>
         <p>Weight: {weight}lbs</p>
         <p>Base Exp: {base_experience}</p>

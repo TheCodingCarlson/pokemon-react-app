@@ -1,0 +1,25 @@
+@import (reference) '../../styles/variables.less';
+
+.pokemon-filter {
+  text-align: center;
+
+  p {
+    margin: 5px 0;
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 2px solid @red; 
+    color: @yellow;
+    width: 25%;
+    margin-top: 24px;
+
+    &:focus {
+      outline: none;
+      transition: all ease 0.5s;
+      border-bottom: 2px solid @yellow;
+    }
+  }
+}
