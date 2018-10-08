@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './styles/PokemonDetails.less';
 import helpers from '../helpers';
 
+import ProgressBar from './ProgressBar';
+
 class PokemonDetails extends Component {
   constructor(props) {
     super(props);
@@ -51,11 +53,11 @@ class PokemonDetails extends Component {
         <img src={image ? `http://pokestadium.com/sprites/xy/${image}.gif/` : ''} alt={name} />
         <h1>{name}</h1>
         <Link to="/">&larr; Back</Link>
-        <p>Height: {height}ft</p>
-        <p>Weight: {weight}lbs</p>
+        <p>Height: {height}</p>
+        <p>Weight: {weight}</p>
         <p>Base Exp: {base_experience}</p>
+        <p>Color: <span style={styles}>{colorName}</span></p>
         <p>Abilities:</p>
-        <p style={styles}>Color: {colorName}</p>
         <ul>
           {abilities && abilities.length > 0 && abilities.map(ability => {
             let abilityName = ability.ability.name;
@@ -63,13 +65,11 @@ class PokemonDetails extends Component {
           })}
         </ul>
         <p>Stats:</p>
-        <ul>
-          {stats && stats.length > 0 && stats.map(stat => {
-            let statName = stat.stat.name;
-            let statFigure = stat.base_stat;
-            return <li key={statName}>{statName} - {statFigure}</li>
-          })}
-        </ul>
+        {stats && stats.length > 0 && stats.map(stat => {
+          let skill = stat.stat.name;
+          let percentage = stat.base_stat;
+          return <ProgressBar key={skill} skill={skill} percentage={percentage} />
+        })}
         <p>Types:</p>
         <ul>
           {types && types.length > 0 && types.map(type => {
