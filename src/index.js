@@ -1,10 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import './styles/index.less';
-import App from './components/App';
+
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Router, Route } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
+
+import App from './components/App'
+import Navbar from './components/Navbar';
+import Pokedex from './components/Pokedex';
+import PokemonDetails from './components/PokemonDetails';
+
+const router = (
+  <Provider store={store}>
+    <Router history={history}>
+      <Navbar />
+      <Route path="/" component={App}>
+        <Route component={Pokedex} />
+        <Route path='/details/:name' component={PokemonDetails} />
+      </Route>
+    </Router>
+  </Provider>
+);
+
+render(router, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

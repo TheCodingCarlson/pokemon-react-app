@@ -3,7 +3,6 @@ import './styles/PokemonFilter.less';
 
 class PokemonFilter extends Component {
   handleChange = (event) => {
-    console.log(event.currentTarget.value);
     this.props.filterPokemon(event.currentTarget.value);
   }
 

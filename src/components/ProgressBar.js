@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/ProgressBar.less';
 
-const ProgressBar = ({skill, percentage}) => {
+const ProgressBar = ({ skill, percentage }) => {
   const styles = {
     width: `${percentage / 2}%`
   }

@@ -48,16 +48,17 @@ class Pokedex extends Component {
   }
 
   componentDidMount = () => {
-    this.getPokemonData();
+    // this.getPokemonData();
   }
 
   render() {
     return (
       <div className="Pokedex">
-        <Header text="Pokedex"/>
+        {/* <Header text="Pokedex"/>
         <PokemonFilter filter={this.state.filter} filterPokemon={this.filterPokemon}/>
         <Button text="Randomize!" onClickFunction={() => this.getRandomPokemon()} />
-        <PokemonList pokemon={this.state.filteredPokemon} />
+        <PokemonList pokemon={this.state.filteredPokemon} /> */}
+        <h1>Pokedex</h1>
       </div>
     );
   }

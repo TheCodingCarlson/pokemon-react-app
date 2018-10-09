@@ -1,22 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Navbar from './Navbar';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/actionCreators';
 import Pokedex from './Pokedex';
-import PokemonDetails from './PokemonDetails';
 
-const App = () => {
-  return (
-    <div>
-      <Router>
-        <div>
-          <Navbar />
-          <Route exact path='/' component={Pokedex} />
-          <Route path='/details/:name' component={PokemonDetails} />
-        </div>
-      </Router>
-    </div>
-  );
+function mapStateToProps(state) {
+  return {
+    pokemon: state.pokemon,
+    filteredPokemon: state.filteredPokemon,
+    filter: state.filter
+  }
 }
+
+function mapDispachToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+
+const App = connect(mapStateToProps, mapDispachToProps)(Pokedex);
 
 export default App;
